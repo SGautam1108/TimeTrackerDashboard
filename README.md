@@ -29,11 +29,11 @@ My users should be able to:
 
 ### Screenshot
 
-![Laptop View + Week](./images/screenshots/Screenshot-1.jpg)
-![Laptop View + Daily](./images/screenshots/Screenshot-2.jpg)
-![Tablet View](./images/screenshots/Screenshot-3.jpg)
-![Phone View](./images/screenshots/Screenshot-4.jpg)
-![](./images/screenshots/Screenshot-5.jpg)
+![Laptop View + Week](./images/Screenshots/Screenshot-1.jpg)
+![Laptop View + Daily](./images/Screenshots/Screenshot-2.jpg)
+![Tablet View](./images/Screenshots/Screenshot-3.jpg)
+![Phone View](./images/Screenshots/Screenshot-4.jpg)
+![](./images/Screenshots/Screenshot-5.jpg)
 
 ### Links
 
