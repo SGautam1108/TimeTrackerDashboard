@@ -23,13 +23,20 @@ $(document).ready(() => {
             cardData["timeframes"][`${currTimeFrame}`]["previous"] + "hrs";
         const prevTimePhrase = `Last ${timeSpan} - ${prevTimeData}`;
 
-        cardCurrTime.fadeOut("slow", () => {
-            cardCurrTime.text(`${currTimeData}`).fadeIn("slow");
-        });
 
-        cardPrevTime.fadeOut("slow", () => {
+        if(firstAnimate){
+            cardCurrTime.text(`${currTimeData}`);
             cardPrevTime.text(`${prevTimePhrase}`).fadeIn("slow");
-        });
+        } else {
+            cardCurrTime.fadeOut("slow", () => {
+                cardCurrTime.text(`${currTimeData}`).fadeIn("slow");
+            });
+    
+            cardPrevTime.fadeOut("slow", () => {
+                cardPrevTime.text(`${prevTimePhrase}`).fadeIn("slow");
+            });
+        }
+        
     };
 
     const changeStats = (e) => {
@@ -45,7 +52,10 @@ $(document).ready(() => {
             json.forEach((obj) => {
                 updateCard(obj, currTimeFrame, currTimeSpan);
             });
+
+            if(firstAnimate) firstAnimate = false;
         });
+
     };
 
     // Clicking three dots changes Pseudo Before element image rotation
@@ -63,6 +73,8 @@ $(document).ready(() => {
     const trackerCards = $(".tracker__cards");
     const ellipsis = $(".cards__ellipsis");
     const data = fetch("./data.json").then((response) => response.json());
+
+    let firstAnimate = true;
 
     changeStats();
     options.on("click", changeStats);
