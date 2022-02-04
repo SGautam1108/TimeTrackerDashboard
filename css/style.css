@@ -23,8 +23,6 @@
     --fw-light: 300;
     --fw-bold: 500;
 
-    --scale: 1;
-    --rotate: 0deg;
 }
 
 html{
@@ -126,10 +124,10 @@ body{
 }
 
 .stats__option{
+    cursor: pointer;
+    
     font-size: 0.9em;
     font-weight: var(--fw-normal);
-    cursor: pointer;
-
     transition: color 0.2s ease-in;
 }
 
@@ -140,10 +138,15 @@ body{
 /* Cards */
 
 .tracker__cards{
+    
+    --scale: 1;
+    --rotate: 0deg;
+
+    cursor: pointer;
     position: relative;
     align-self: flex-end;
     height: 80%;
-    padding-block: 1em;
+    padding-block: 0.5em;
     padding-inline: 1.7em;
 
     display: grid;
@@ -159,6 +162,12 @@ body{
     
     transition: background-color 0.2s ease-in;   
 }
+
+.tracker__cards--rotate{
+    --scale: 0.9;
+    --rotate: -10deg;
+}
+
 
 .cards__title{
     grid-area: card-title;
@@ -181,13 +190,13 @@ body{
 
 .cards__curr-time{
     grid-area: current;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: var(--fw-light);
 }
 
 .cards__prev-time{
     grid-area: previous;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: var(--fw-normal);
     color: var(--pale-blue-color);
 }
@@ -195,6 +204,7 @@ body{
 /* Cards Before Element */
 
 .tracker__cards::before{
+
     content: "";
     display: block;
     width: 100%;
@@ -212,12 +222,13 @@ body{
     background-position-y: -5px;
 
     transform-origin: 100% 100%;
-    /* transform: scaleX(var(--scale)) rotate(var(--rotate)); */
+    transform: scaleX(var(--scale)) rotate(var(--rotate));
 }
 
 .work::before{
     background-color: var(--work-color);
-    background-image: url("../images/icon-work.svg"); 
+    background-image: url("../images/icon-work.svg");
+
 }
 .play::before{
     background-color: var(--play-color);
@@ -322,7 +333,7 @@ body{
     /* Cards */
 
     .tracker__cards{
-        padding-block: 0;
+        padding-block: 0.5em;
     }
 
     .cards__title{
@@ -380,6 +391,10 @@ body{
             "current previous";
         
         padding-block: 1.2em;
+    }
+
+    .cards__title{
+        font-size: 1rem;
     }
 
     .cards__ellipsis{
